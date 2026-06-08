@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Pamela  & Patrick Moral- Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="home.css">
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="music-control">
+    <button id="musicToggle" class="music-btn">
+      <svg class="music-icon playing" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13"/>
+        <circle cx="6" cy="18" r="3"/>
+        <circle cx="18" cy="16" r="3"/>
+      </svg>
+      <svg class="music-icon paused" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <path d="M9 18V5l12-2v13"/>
+        <circle cx="6" cy="18" r="3"/>
+        <circle cx="18" cy="16" r="3"/>
+        <line x1="2" y1="2" x2="22" y2="22"/>
+      </svg>
+    </button>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+  <div class="nav-overlay-names">Patrick &amp; Pamela</div>
+  <div class="nav-overlay-date">August 22, 2026</div>
+  <nav class="nav-links">
+    <a class="nav-link" data-section=".invitation">Invitation</a>
+    <a class="nav-link" data-section=".countdown-section">Countdown</a>
+    <a class="nav-link" data-section=".save-date">Save the Date</a>
+    <a class="nav-link" data-section=".venue">Venue</a>
+    <a class="nav-link" data-section=".timeline">Timeline</a>
+    <a class="nav-link" data-section=".dress-code">Dress Code</a>
+    <a class="nav-link" data-section=".gift-unplugged-section">Gift &amp; Unplugged</a>
+    <a class="nav-link" data-section=".rsvp-section">RSVP</a>
+  </nav>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="frontbg.jpg" alt="Ranalyn and Joel" class="hero-image">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Together with their families</p>
+    <div class="hero-ornament">
+      <span class="hero-ornament-line"></span>
+      <span class="hero-ornament-diamond">◆</span>
+      <span class="hero-ornament-line"></span>
+    </div>
+    <h1 class="couple-names">
+      <span class="name-left">Pamela Bautista</span>
+      <span class="name-and">&</span>
+      <span class="name-right">Patrick Moral</span>
+    </h1>
+    <div class="hero-ornament">
+      <span class="hero-ornament-line"></span>
+      <span class="hero-ornament-diamond">◆</span>
+      <span class="hero-ornament-line"></span>
+    </div>
+    <p class="tagline">a love perfectly made</p>
+    <p class="hero-date">August 22, 2026  ·  Limay, Bataan</p>
+    <div class="hero-scroll"><span class="hero-scroll-line"></span></div>
+  </div>
+</section>
+
+<!-- Invitation Section -->
+<section class="invitation">
+  <div class="top-deco-img">
+    <img src="vines.png" alt="">
+  </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="invitation-grid">
+      <div class="polaroid">
+        <div class="polaroid-frame">
+          <img src="pam_pat.JPG" alt="pam and pat" class="polaroid-img">
+        </div>
+      </div>
+      <div class="invitation-text">
+        <p class="invited-label">YOU ARE INVITED</p>
+        <h2 class="script-names">Pamela<br>&<br>Patrick</h2>
+        <p class="married-text">ARE GETTING MARRIED!</p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-deco-img">
+    <img src="bot.png" alt="">
+  </div>
+</section>
+
+<!-- Countdown Section -->
+<section class="countdown-section">
+  <div class="top-deco-img">
+    <img src="branch.png" alt="">
+  </div>
+  <div class="container">
+    <div class="countdown-card">
+      <p class="countdown-label">DAYS BEFORE WE SAY "I DO"</p>
+      <div class="countdown">
+        <div class="countdown-item"><span class="count" id="days">000</span><span class="label">DAYS</span></div>
+        <span class="separator">:</span>
+        <div class="countdown-item"><span class="count" id="hours">00</span><span class="label">HOURS</span></div>
+        <span class="separator">:</span>
+        <div class="countdown-item"><span class="count" id="minutes">00</span><span class="label">MINUTES</span></div>
+        <span class="separator">:</span>
+        <div class="countdown-item"><span class="count" id="seconds">00</span><span class="label">SECONDS</span></div>
+      </div>
+    </div>
+  </div>
+   <div class="bottom-deco-img">
+    <img src="bot.png" alt="">
+  </div>
+</section>
+
+<!-- Save the Date Section -->
+<section class="save-date">
+  <div class="container">
+    <p class="countdown-label"></p>
+    <h3 class="section-title script">Save the Date</h3>
+  <p class="month-year">AUGUST 2026</p>
+    <div class="calendar-grid">
+      <div class="calendar">
+        <div class="weekdays">
+          <span>sun</span><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span>
+        </div>
+    <div class="days">
+  <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span>1</span>
+  <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+  <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+  <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span class="highlight">22</span>
+  <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+  <span>30</span><span>31</span>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="hastag">
+    <span class="hastag-symbol">#</span>Pam
+    <span class="LAY">took</span>
+  theright
+    <span class="OWEL">Pat</span>
+  </div>
+   <div class="bottom-deco-img">
+    <img src="bot.png" alt="">
+  </div>
+</section>
+
+<!-- Ceremony -->
+<section class="venue">
+  <div class="container">
+    <div class="venue-card combined-venue-card">
+      <h3 class="venue-type script">Ceremony</h3>
+      <h4 class="venue-name">OUR LADY OF THE PILLAR PARISH CHURCH</h4>
+      <p class="venue-location">Poblacion, Morong, Bataan</p>
+  <div class="venue-carousel">
+  <div class="carousel-track-wrapper">
+
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="church1.jpg" alt="Church - Photo 1"></div>
+
+    </div>
+
+  </div>
+  <div class="carousel-dots">
+    <span class="dot active"></span>
+
+  </div>
+</div>
+      <div class="venue-map">
+<iframe
+  title="Our Lady of the Pillar Parish Church"
+  width="100%"
+  height="280"
+  style="border:0; border-radius: 10px;"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps?q=14.678823,120.265857&z=16&output=embed">
+</iframe>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-deco-img">
+    <img src="" alt="">
+  </div>
+</section>
+
+<!-- Reception -->
+<section class="venue">
+  <div class="container">
+    <div class="venue-card combined-venue-card">
+      <h3 class="venue-type script">Reception</h3>
+      <h4 class="venue-name">MEILI GARDEN FARM</h4>
+      <p class="venue-location">Binaritan, Morong, Bataan</p>
+      <div class="venue-map">
+        <iframe
+          title="Meili Garden Farm"
+          width="100%"
+          height="280"
+          style="border:0; border-radius: 10px;"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Meili+Garden+Farm+Binaritan+Morong+Bataan&z=16&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-deco-img">
+    <img src="bot.png" alt="">
+  </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline">
+  <div class="container">
+    <h3 class="section-title script">Wedding Day</h3>
+    <p class="subtitle">TIMELINE</p>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <div class="icon">
+          <i class="fas fa-church"></i>
+        </div>
+        <span class="time">9:30 AM</span>
+        <span class="event">Ceremony</span>
+      </div>
+      <div class="timeline-item">
+        <div class="icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <span class="time">12:00/2:00 PM</span>
+        <span class="event">Reception & Dinner</span>
+      </div>
+      <div class="timeline-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <span class="time">2:00/8:00 PM</span>
+        <span class="event">After Party</span>
+      </div>
+    </div>
+    <p class="timeline-message">
+      Every moment of the day is something we've been dreaming of, and
+      we're grateful that you'll be experiencing it with us
+    </p>
+  </div>
+</section>
+
+<!-- Dress Code bride/groom Section -->
+<section class="dress-code">
+  <div class="container">
+    <h3 class="section-title-script">Dress Code</h3>
+    <p class="dress-formality">Groomsmen & Bridesmaid</p>
+    <div class="palette-row">
+      <p class="palette-title">THE Attire</p>
+    </div>
+    <div class="attire-container">
+      <div class="attire-column">
+        <div class="attire-label-box">
+          <p class="attire-role">Groomsmen</p>
+          <p class="attire-dress"></p>
+        </div>
+        <img src="male.PNG" alt="Male Attire" class="attire-illustration">
+      </div>
+      <div class="attire-divider">
+        <span></span>
+        <span class="attire-divider-diamond">◆</span>
+        <span></span>
+      </div>
+      <div class="attire-column">
+        <div class="attire-label-box">
+          <p class="attire-role">Bridesmaid</p>
+          <p class="attire-dress"></p>
+        </div>
+        <img src="female.PNG" alt="Female Attire" class="attire-illustration">
+      </div>
+    </div>
+    <p class="sponsors-note"></p>
+    <div class="guests-section">
+      <h5>Groomsmen and Bridesmaid</h5>
+      <p class="guests-text">
+        WE ALSO HIGHLY ENCOURAGE YOU TO DRESS IN<br>
+        THE SHADES OF OUR COLOR PALETTE
+      </p>
+      <p class="guests-note">
+        FOR THOSE PART OF THE ENTOURAGE, THE BRIDE AND<br>
+        GROOM WILL REACH OUT TO YOU SEPARATELY
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<!--Vip-->
+<section class="vip-card-section">
+  <div class="container">
+
+    <div class="vip-card">
+
+      <!-- Top band -->
+      <div class="vip-card-band">
+        <span class="vip-card-band-line"></span>
+        <span class="vip-card-band-text">Ninong Ninang</span>
+        <span class="vip-card-band-line"></span>
+      </div>
+
+      <!-- Body -->
+      <div class="vip-card-body">
+
+        <!-- Greeting -->
+        <p class="vip-card-greeting">Dear Ninong &amp; Ninang,</p>
+
+        <!-- Message -->
+        <p class="vip-card-message">
+          Thank you for accepting a role in our wedding.<br>
+          We can't wait to see you on our big day!<br><br>
+          Please use this as a guide for your attire.
+        </p>
+
+        <!-- Divider -->
+        <div class="vip-card-rule">
+          <span></span>
+          <span class="vip-card-rule-diamond">◆</span>
+          <span></span>
+        </div>
+
+        <!-- Color label -->
+        <p class="vip-attire-label">Color &amp; Style</p>
+
+        <!-- Swatches -->
+        <div class="vip-swatches">
+          <span class="vip-swatch" style="background:#F2EBDD;" title="Sage Green"></span>
+          <span class="vip-swatch" style="background:#E3D6BF;" title="Dark Sage"></span>
+          <span class="vip-swatch" style="background:#F6F0E4;" title="Soft Sage"></span>
+          <span class="vip-swatch-label">Ivory/beige/cream</span>
+        </div>
+
+        <!-- Illustrations -->
+        <div class="vip-illustrations">
+
+          <!-- Ninong -->
+          <div class="vip-illus-col">
+            <p class="vip-illus-role">Ninong</p>
+            <p class="vip-illus-attire">[Barong Tagalog]</p>
+            <div class="vip-illus-placeholder" style="background:#ffffff;">
+              <img src="Ninong.png" alt="Ninong Attire" class="vip-illus-img">
+            </div>
+          </div>
+
+          <!-- Center divider -->
+          <div class="vip-illus-divider">
+            <span></span>
+            <span class="vip-illus-divider-diamond">◆</span>
+            <span></span>
+          </div>
+
+          <!-- Ninang -->
+          <div class="vip-illus-col">
+            <p class="vip-illus-role">Ninang</p>
+            <p class="vip-illus-attire">[Formal Wedding Dress]</p>
+            <div class="vip-illus-placeholder" style="background:#ffffff;">
+              <img src="ninang.png" alt="Ninang Attire" class="vip-illus-img">
+            </div>
+          </div>
+
+        </div><!-- end .vip-illustrations -->
+
+        <!-- Signature -->
+        <div class="vip-card-signature">
+          <p class="vip-signature-love">With love and gratitude,</p>
+          <p class="vip-signature-names">Bride &amp; Groom</p>
+          <p class="vip-signature-date">August 22, 2026</p>
+        </div>
+
+      </div><!-- end .vip-card-body -->
+    </div><!-- end .vip-card -->
+
+  </div>
+</section>
+
+<!--Guest Attire Section-->
+<section class="gc-section">
+  <div class="gc-card">
+
+    <div class="gc-band">
+      <span class="gc-band-line"></span>
+      <span class="gc-band-text">Guest Attire Guide</span>
+      <span class="gc-band-line"></span>
+    </div>
+
+    <div class="gc-body">
+
+      <p class="gc-greeting">Dear Guests,</p>
+
+      <p class="gc-message">
+        Your presence is the greatest gift of all.<br>
+        To help us create a beautiful, cohesive celebration,<br>
+        we kindly invite you to dress in our chosen palette.
+      </p>
+
+      <div class="gc-rule">
+        <span></span><span class="gc-diamond">◆</span><span></span>
+      </div>
+
+      <p class="gc-attire-label">Color Palette &amp; Style</p>
+
+      <div class="gc-palette-row">
+        <div class="gc-swatch-group">
+          <span class="gc-swatch" style="background:#97B18F;" title="Sage Green"></span>
+          <span class="gc-swatch" style="background:#738A6E;" title="Dark Sage"></span>
+          <span class="gc-swatch" style="background:#DCE7D8;" title="Soft Sage"></span>
+          <span class="gc-swatch-name">Sage Green</span>
+        </div>
+        <div class="gc-swatch-group">
+          <span class="gc-swatch" style="background:#F5F0E8;" title="Ivory"></span>
+          <span class="gc-swatch" style="background:#EDE4D0;" title="Warm Ivory"></span>
+          <span class="gc-swatch-name">Ivory</span>
+        </div>
+        <div class="gc-swatch-group">
+          <span class="gc-swatch" style="background:#D4A853;" title="Warm Gold"></span>
+          <span class="gc-swatch" style="background:#C49A3C;" title="Deep Gold"></span>
+          <span class="gc-swatch-name">Warm Gold</span>
+        </div>
+      </div>
+
+      <div class="gc-illus-wrap">
+        <img src="Guest.png" alt="Guest attire illustration — sage green, ivory and warm gold palette">
+        <div class="gc-illus-caption">
+          <span>Sage Green</span>
+          <span></span>
+          <span>Ivory</span>
+          <span></span>
+          <span>Warm Gold</span>
+        </div>
+      </div>
+
+      <div class="gc-notes-grid">
+        <div class="gc-note-card">
+          <i class="ti ti-tie gc-note-icon" aria-hidden="true"></i>
+          <p class="gc-note-title">Gentlemen</p>
+          <p class="gc-note-val">suit, or long sleeves in sage or ivory</p>
+        </div>
+        <div class="gc-note-card">
+          <i class="ti ti-dress gc-note-icon" aria-hidden="true"></i>
+          <p class="gc-note-title">Ladies</p>
+          <p class="gc-note-val">Dress or gown in sage, ivory, or warm gold</p>
+        </div>
+        <div class="gc-note-card">
+          <i class="ti ti-sparkles gc-note-icon" aria-hidden="true"></i>
+          <p class="gc-note-title">Formality</p>
+          <p class="gc-note-val">Semi-formal to formal attire</p>
+        </div>
+      </div>
+
+      <div class="gc-avoid">
+        <p class="gc-avoid-label">Kindly Avoid</p>
+        <p class="gc-avoid-text">
+          White, off-white, or all-black attire &nbsp;[&nbsp; Casual wear &nbsp;]&nbsp; Loud prints
+        </p>
+      </div>
+
+      <div class="gc-sig">
+        <p class="gc-sig-love">With love and gratitude,</p>
+        <p class="gc-sig-names">Bride &amp; Groom</p>
+        <p class="gc-sig-date">August 22, 2026</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Gift Guide & Unplugged Section -->
+<section class="gift-unplugged-section">
+  <div class="container">
+    <div class="section-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+    <div class="gift-unplugged-block">
+      <h3 class="section-title script">Gift Guide</h3>
+      <p class="gift-unplugged-text">
+        Your love and presence are the greatest gifts we could ask for.<br>
+        But if you wish to honor us with a gift, a monetary blessing would be<br>
+        sincerely appreciated.
+      </p>
+    </div>
+    <div class="section-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+    <div class="gift-unplugged-block">
+      <h3 class="section-title script">Unplugged</h3>
+      <p class="gift-unplugged-text">
+        Please keep our wedding ceremony camera free. We've hired professional<br>
+        photographers to capture us marry. Though our I Do's are unplugged our<br>
+        reception is not.
+      </p>
+    </div>
+    <div class="qr-wrapper">
+    </div>
+  </div>
+</section>
+
+<!-- RSVP Section -->
+<section class="rsvp-section">
+  <div class="container">
+    <div class="section-rule">
+      <span></span><span class="diamond">◆</span><span></span>
+    </div>
+    <h3 class="section-title script">RSVP</h3>
+    <p class="rsvp-label">KINDLY REPLY BY APRIL 25, 2026</p>
+    <p class="rsvp-sub">Please fill out the form below to confirm your attendance</p>
+    <div class="rsvp-form-wrapper">
+      <form class="rsvp-custom-form" id="rsvpForm">
+
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" name="entry.1984817171" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Will you attend?</label>
+          <div class="form-radio-group">
+            <label class="form-radio">
+<input type="radio" name="entry.438460680" value="Joyfully Accepts" required>
+              <span class="radio-custom"></span>
+              <span class="radio-label">Joyfully Accepts</span>
+            </label>
+            <label class="form-radio">
+<input type="radio" name="entry.438460680" value="Regretfully Declines" >
+              <span class="radio-custom"></span>
+              <span class="radio-label">Regretfully Declines</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ++ PLUS ONE — hidden until "Joyfully Accepts" is picked ++ -->
+        <div class="form-group" id="plusOneGroup" style="display:none; overflow:hidden;">
+          <label class="form-label">Will you bring a plus one?</label>
+          <p class="plusone-note">
+            To help us finalize our catering arrangements, each guest is kindly
+            allowed one companion only. We appreciate your understanding.
+          </p>
+          <div class="form-radio-group">
+            <label class="form-radio">
+<input type="radio" name="entry.787139128" value="Yes">
+              <span class="radio-custom"></span>
+              <span class="radio-label">Yes</span>
+            </label>
+            <label class="form-radio">
+<input type="radio" name="entry.787139128" value="No">
+              <span class="radio-custom"></span>
+              <span class="radio-label">No</span>
+            </label>
+          </div>
+        </div>
+        <!-- ++ END PLUS ONE ++ -->
+
+        <div class="form-group">
+          <label class="form-label">Message to the Couple <span class="form-optional">(optional)</span></label>
+          <textarea class="form-input form-textarea" name="entry.1480236134" placeholder="Share your wishes..."></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="form-submit-btn">
+            <span class="btn-text">Send with Love ◆</span>
+          </button>
+        </div>
+
+        <div class="form-success" id="rsvpSuccess">
+          <p class="success-eyebrow">✉ Response Received</p>
+          <p class="success-script">Thank you!</p>
+          <p class="success-sub">for taking the time to respond</p>
+          <div class="success-rule"><span></span><span></span><span></span></div>
+          <p class="success-message">We look forward to celebrating this special day with you.</p>
+          <p class="success-names">— Pamela &amp; Patrick</p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+  <img src="flower.png" alt="" class="footer-flower footer-flower-left" aria-hidden="true">
+  <img src="flower.png" alt="" class="footer-flower footer-flower-right" aria-hidden="true">
+  <div class="container footer-content">
+    <p class="footer-thankyou">Thank You</p>
+    <p class="footer-message">for being part of our special day</p>
+    <div class="footer-rule">
+      <span></span><span class="footer-diamond">◆</span><span></span>
+    </div>
+    <p class="footer-names">Pamela &amp; Patrick</p>
+    <p class="footer-date">August 22, 2026</p>
+  </div>
+</footer>
+
+<script src="home.js"></script>
+</body>
+</html>

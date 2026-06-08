@@ -1,0 +1,383 @@
+/* ================= CSS VARIABLES ================= */
+:root {
+--terracotta:  #4A7C6F;
+  --sienna:      #6B9E90;
+  --dark-brown:  #2E5C50;
+  --deep-brown:  #1D3D34;
+  --cream:       #F4F7F5;
+  --warm-cream:  #E8F0EC;
+  --taupe:       #8FAF9F;
+  --champagne:   #B8D4C8;
+  --gold:        #8FAF9F;
+  --gold-light:  #B8D4C8;
+  --text-dark:   #2E4A40;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-serif:  'Cormorant Garamond', serif;
+  --font-sans:   'Montserrat', sans-serif;
+}
+
+/* ================= RESET ================= */
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(12px, 3vw, 24px);
+  background-color: var(--cream);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ================= CANVAS ================= */
+canvas#matchaParticles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* ================= BACKGROUND SCENE ================= */
+.flower-scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.flower-scene:not(.not-loaded) { opacity: 1; }
+
+/*change color bg middle*/
+.night {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(74, 124, 111, 0.18)  0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(107, 158, 144, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 100%,   rgba(46, 92, 80, 0.12)    0%, transparent 60%);
+}
+
+/* ================= CORNER FLOURISHES ================= */
+.flourish {
+  position: fixed;
+  width: clamp(80px, 14vw, 140px);
+  color: var(--sienna);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+  animation: flourishFadeIn 1.6s ease both;
+}
+.flourish--tl { top: 0;    left: 0;  transform-origin: top left; }
+.flourish--tr { top: 0;    right: 0; transform: scaleX(-1);       transform-origin: top right; }
+.flourish--bl { bottom: 0; left: 0;  transform: scaleY(-1);       transform-origin: bottom left; }
+.flourish--br { bottom: 0; right: 0; transform: scale(-1, -1);    transform-origin: bottom right; }
+
+@keyframes flourishFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 0.4; }
+}
+
+/* ================= INVITE HEADER ================= */
+.invite-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 1;
+  animation: fadeSlideDown 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.invite-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(15px, 2.8vw, 17px);
+  color: var(--sienna);
+  letter-spacing: 0.15em;
+  opacity: 0.85;
+  padding-bottom: 10%;
+}
+
+.invite-text-top {
+  font-family: var(--font-script);
+  font-size: clamp(42px, 9vw, 96px);
+  color: var(--terracotta);
+  line-height: 1.05;
+  text-shadow:
+    1px 2px 12px rgba(139, 74, 43, 0.18),
+    0   1px  4px rgba(139, 74, 43, 0.10);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* Ornamental divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: clamp(120px, 28vw, 220px);
+  margin-top: 4px;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.divider-diamond {
+  font-size: 7px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* ================= WRAPPER ================= */
+.wrapper {
+  position: relative;
+  width: min(88vw, 480px);
+  aspect-ratio: 3 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: fadeSlideUp 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.25s;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= ENVELOPE LINK ================= */
+.envelope-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.envelope-link:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
+/* ================= ENVELOPE IMAGE ================= */
+.envelope-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter  0.5s ease;
+  filter:
+    drop-shadow(0 8px 24px rgba(139, 74, 43, 0.22))
+    drop-shadow(0 2px  6px rgba(139, 74, 43, 0.12));
+  will-change: transform;
+}
+
+.envelope-link:hover .envelope-img,
+.envelope-link:focus-visible .envelope-img {
+  transform: translateY(-5px) scale(1.012);
+  filter:
+    drop-shadow(0 16px 36px rgba(139, 74, 43, 0.30))
+    drop-shadow(0  4px 10px rgba(139, 74, 43, 0.18));
+}
+
+/* ================= SEAL ================= */
+.wax-seal,
+.seal-img {
+  position: absolute;
+  width: clamp(100px, 18vw, 130px);
+    top: 70%;  
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 6px 16px rgba(139, 74, 43, 0.30))
+    drop-shadow(0 2px  5px rgba(0,0,0,0.10));
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter  0.5s ease;
+
+}
+
+.envelope-link:hover .wax-seal,
+.envelope-link:hover .seal-img,
+.envelope-link:focus-visible .wax-seal,
+.envelope-link:focus-visible .seal-img {
+  animation: none;
+  transform: translate(-50%, -50%) translateY(-4px) scale(1.1) rotate(5deg);
+  filter:
+    drop-shadow(0 10px 24px rgba(139, 74, 43, 0.38))
+    drop-shadow(0  3px  8px rgba(0,0,0,0.12));
+}
+
+/* ================= BOTTOM CTA ================= */
+.invite-text-bottom {
+  font-family: var(--font-sans);
+  font-size: clamp(10px, 2.2vw, 13px);
+  color: var(--terracotta);
+  position: absolute;
+  bottom: clamp(-52px, -8vw, -62px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: ctaPulse 2.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.tap-icon {
+  font-size: 8px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+@keyframes ctaPulse {
+  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 1;    transform: translateX(-50%) scale(1.02); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .invite-text-top {
+    font-size: clamp(36px, 10.5vw, 64px);
+  }
+  .wrapper {
+    width: min(92vw, 420px);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    gap: 10px;
+  }
+  .invite-text-top {
+    font-size: clamp(30px, 13vw, 52px);
+  }
+  .wrapper {
+    width: 94vw;
+  }
+  .seal-img {
+    width: 22vw;
+  }
+  .flourish {
+    width: clamp(60px, 18vw, 90px);
+    opacity: 0.28;
+  }
+  .invite-text-bottom {
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-height: 500px) {
+  .invite-header {
+    gap: 2px;
+  }
+  .invite-text-top {
+    font-size: clamp(28px, 7vh, 48px);
+  }
+  .wrapper {
+    width: min(60vw, 360px);
+  }
+  .flourish {
+    width: 70px;
+    opacity: 0.22;
+  }
+}
+
+
+/* ── Falling leaves ── */
+@keyframes leafFall {
+  0%   { 
+    transform: translateY(0vh)   translateX(0px)              rotate(0deg); 
+    opacity: 0; 
+  }
+  8%   { opacity: 0.55; }
+  40%  { 
+    transform: translateY(40vh)  translateX(var(--sway))      rotate(140deg); 
+  }
+  75%  { 
+    transform: translateY(80vh)  translateX(calc(var(--sway) * -0.5)) rotate(260deg); 
+  }
+  92% { opacity: 0.35; }
+  100% { 
+    transform: translateY(108vh) translateX(var(--sway))      rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+
+
+
+/* ── Shared styles for both flower corners ── */
+.corner-flower {
+  position: fixed;
+  pointer-events: none;
+  display: block;
+  z-index: 0;
+  opacity: 0.92;
+  width: clamp(230px, 32vw, 280px);
+  height: auto;
+}
+
+@keyframes sway-tl {
+  0%   { transform: rotate(270deg) rotate(0deg)   scaleX(1)    scaleY(1); }
+  20%  { transform: rotate(270deg) rotate(1.5deg) scaleX(1.02) scaleY(0.99); }
+  45%  { transform: rotate(270deg) rotate(-2deg)  scaleX(0.99) scaleY(1.02); }
+  70%  { transform: rotate(270deg) rotate(1deg)   scaleX(1.01) scaleY(0.98); }
+  100% { transform: rotate(270deg) rotate(0deg)   scaleX(1)    scaleY(1); }
+}
+
+@keyframes sway-br {
+  0%   { transform: rotate(280deg) scaleX(-1) scaleY(1)    rotate(0deg); }
+  20%  { transform: rotate(280deg) scaleX(-1) scaleY(0.99) rotate(-1.5deg); }
+  45%  { transform: rotate(280deg) scaleX(-1) scaleY(1.02) rotate(2deg); }
+  70%  { transform: rotate(280deg) scaleX(-1) scaleY(0.98) rotate(-1deg); }
+  100% { transform: rotate(280deg) scaleX(-1) scaleY(1)    rotate(0deg); }
+}
+
+
+/* ── TOP-LEFT flower ── */
+.corner-flower-tl {
+  top: 40px;
+  left: -180px;
+  transform-origin: top center;
+  animation: sway-tl 5.8s ease-in-out infinite;
+}
+
+/* ── BOTTOM-RIGHT flower ── */
+.corner-flower-br {
+  bottom: -15px;
+  right: -180px;
+  transform-origin: bottom center;
+  animation: sway-br 7s ease-in-out infinite;
+  animation-delay: 0s; /* removed delay — delay was causing the initial flip */
+}
